@@ -15,10 +15,12 @@
   --placeholder: #2b2b2b;
   --focus: #3d8bfd;
 
-  /* Couleur d'accent de la marque (bouton carte abonné, étiquettes des actualités…) */
-  --accent: var(--red);
-  --accent-hover: var(--red-dark);
-  --on-accent: var(--white);
+  /* Couleur d'accent de la marque (bouton carte abonné, étiquettes des actualités…)
+     Jaune du logo. Pour revenir au rouge, remplacer ces 3 lignes par :
+     --accent: var(--red); --accent-hover: var(--red-dark); --on-accent: var(--white); */
+  --accent: var(--yellow);
+  --accent-hover: #e5a800;
+  --on-accent: var(--black);
 
   /* marge gauche/droite : au moins 64px, et le contenu ne dépasse pas 1200px de large */
   --gutter: max(64px, calc((100vw - 1200px) / 2));
