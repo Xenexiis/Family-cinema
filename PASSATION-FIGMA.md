@@ -19,7 +19,7 @@ Tu reprends le travail d'une session précédente. L'utilisateur s'appelle **Mar
 |---|---|---|---|
 | Source d'origine (ne pas casser) | `JSwsswVsC3TDbZIg5JlMpd` | https://www.figma.com/design/JSwsswVsC3TDbZIg5JlMpd | Les originaux sont intacts, et les pages « refonte » existent |
 | **AMMY** | `XkvAhKyvNmhvao8blomEwe` | https://www.figma.com/design/XkvAhKyvNmhvao8blomEwe | ✅ TERMINÉ |
-| **Org-Expo** | `FOXmqau6hlGnSw8BMhTBGs` | https://www.figma.com/design/FOXmqau6hlGnSw8BMhTBGs | 🟡 EN COURS (voir plus bas) |
+| **Org-Expo** | `FOXmqau6hlGnSw8BMhTBGs` | https://www.figma.com/design/FOXmqau6hlGnSw8BMhTBGs | ✅ TERMINÉ |
 | **Billetterie** | `jTcVjBLVNqwkqP1cOFlszx` | https://www.figma.com/design/jTcVjBLVNqwkqP1cOFlszx | ⬜ Vide, à faire |
 | **Audit** | `9ZC6QcFSzQkJGBh9WMwR8M` | https://www.figma.com/design/9ZC6QcFSzQkJGBh9WMwR8M | ⬜ Vide, à faire |
 
@@ -113,7 +113,7 @@ Pour les **images** :
   - Molécules : Champ, Recherche, Filtre déroulant, Info, Tâche, Ressource, Outil, Étape, Ligne de montant, Bulle de message, Carte événement.
   - Organismes : En-tête site, En-tête espace (Exposant/Organisateur), Messagerie, Barre de sélection, Tableau dossiers/En-tête + Ligne, Tableau paiements/En-tête + Ligne, Ligne document.
   - Documentation : Note.
-- ✅ Les 8 écrans sont construits sur la page Maquettes. Ils sont encore empilés en (0,0) et restent à disposer :
+- ✅ Les 8 écrans sont construits et disposés sur Maquettes (3 rangées + Notes, aucun chevauchement) :
   - Accueil
   - Connexion
   - Exposant · Paiements
@@ -122,15 +122,7 @@ Pour les **images** :
   - Organisateur · Paramètres
   - Organisateur · Dossiers exposants
   - Organisateur · Fiche exposant
-- ⬜ **Reste à faire pour Org-Expo :**
-  1. Disposer la page Maquettes :
-     - titre de page ;
-     - rangées « Site public » (Accueil, Connexion), « Côté exposant » (3 écrans) et « Côté organisateur » (3 écrans) ;
-     - écrans espacés de 160 px ;
-     - une Note « Ce qui change » sous chaque écran ;
-     - vérifier qu'aucun élément ne se chevauche.
-  2. Page Fondations : nuanciers, textes, espacements. Garder les 4 rectangles d'image rangés.
-  3. Couverture : fond bleu nuit, accent orange.
+- ✅ Fondations (couleurs, typo, espacements, rayons, ombre, images) et Couverture `10:280` terminées.
 
 ## Reste à faire ensuite
 
