@@ -35,19 +35,9 @@ img { display: block; max-width: 100%; }
 a { color: inherit; }
 button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
 
-/* Icônes en SVG (trait blanc/noir selon le contexte) */
-.icon {
-  width: 24px; height: 24px; flex-shrink: 0;
-  fill: none; stroke: currentColor; stroke-width: 1.8;
-  stroke-linecap: round; stroke-linejoin: round;
-}
-.icon .fill { fill: currentColor; stroke: none; }
-.icon .cut  { stroke: var(--black); stroke-width: 1.6; }
-.chevron {
-  width: 14px; height: 14px; flex-shrink: 0;
-  fill: none; stroke: currentColor; stroke-width: 1.6;
-  stroke-linecap: round; stroke-linejoin: round;
-}
+/* Icônes (fichiers SVG exportés de Figma dans images/icons) */
+.icon { width: 24px; height: 24px; flex-shrink: 0; }
+.chevron { width: 14px; height: 14px; flex-shrink: 0; }
 
 /* ---------- Titres de section ---------- */
 .section-title {
@@ -263,8 +253,9 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .affiche__prev { left: 45px; opacity: 0; pointer-events: none; }
 .affiche__prev.is-visible { opacity: 1; pointer-events: auto; }
 .affiche__next.is-hidden { opacity: 0; pointer-events: none; }
-.affiche__next .chevron,
-.affiche__prev .chevron { width: 24px; height: 24px; stroke-width: 1.8; }
+.arrow { width: 24px; height: 24px; }
+.arrow--next { transform: rotate(-90deg); }
+.arrow--prev { transform: rotate(90deg); }
 
 .poster-card {
   flex: 0 0 207px;
@@ -550,20 +541,7 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 .footer__title { font-weight: 700; text-transform: uppercase; }
 
 .socials { display: flex; gap: 13px; margin-top: 15px; }
-.social {
-  display: grid;
-  place-items: center;
-  width: 55px;
-  height: 56px;
-  border-radius: 14px;
-}
-.social svg { width: 40px; height: 40px; fill: none; stroke: var(--white); stroke-width: 1.8; }
-.social .dot { fill: var(--white); stroke: none; }
-.social--insta {
-  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fd5949 45%, #d6249f 60%, #285aeb 90%);
-}
-.social--fb { border-radius: 50%; background: #1877f2; }
-.social--fb svg { fill: var(--white); stroke: none; width: 44px; height: 44px; transform: translateY(4px); }
+.social img { width: 55px; height: 56px; }
 
 .btn--icon .icon { width: 24px; height: 24px; }
 
