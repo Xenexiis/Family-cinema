@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Family Cinéma</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ============ BARRE DE NAVIGATION ============ -->
+  <header class="nav">
+    <div class="nav__inner">
+      <a href="#" class="nav__logo"><img src="images/logo.png" alt="Family Cinéma"></a>
+
+      <button class="nav__burger" aria-label="Ouvrir le menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <div class="nav__content">
+        <label class="search">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5 21 21"/></svg>
+          <input type="search" placeholder="Recherche un film">
+        </label>
+
+        <nav class="nav__menu">
+          <a href="#">Film <svg class="chevron" viewBox="0 0 14 14" aria-hidden="true"><path d="m3.5 5.5 3.5 3.5 3.5-3.5"/></svg></a>
+          <span class="nav__sep"></span>
+          <a href="#">Tarif <svg class="chevron" viewBox="0 0 14 14" aria-hidden="true"><path d="m3.5 5.5 3.5 3.5 3.5-3.5"/></svg></a>
+          <span class="nav__sep"></span>
+          <a href="#">Événement <svg class="chevron" viewBox="0 0 14 14" aria-hidden="true"><path d="m3.5 5.5 3.5 3.5 3.5-3.5"/></svg></a>
+          <span class="nav__sep"></span>
+          <a href="#">Prestation <svg class="chevron" viewBox="0 0 14 14" aria-hidden="true"><path d="m3.5 5.5 3.5 3.5 3.5-3.5"/></svg></a>
+          <span class="nav__sep"></span>
+          <a href="#">À propos <svg class="chevron" viewBox="0 0 14 14" aria-hidden="true"><path d="m3.5 5.5 3.5 3.5 3.5-3.5"/></svg></a>
+          <span class="nav__sep"></span>
+          <a href="#">Contact <svg class="chevron" viewBox="0 0 14 14" aria-hidden="true"><path d="m3.5 5.5 3.5 3.5 3.5-3.5"/></svg></a>
+        </nav>
+
+        <a href="#" class="btn btn--red">Ma carte abonné</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ============ CARROUSEL DU HAUT ============ -->
+    <section class="hero">
+      <div class="hero__track">
+        <article class="hero__slide is-active">
+          <img class="hero__bg" src="images/hero-amour-ouf.jpg" alt="">
+          <div class="hero__text">
+            <h1>L’amour ouf</h1>
+            <p>Les années 80, dans le nord de la France. Jackie et Clotaire grandissent entre les bancs du lycée et les docks du port. Elle étudie, il traîne. Et puis leurs destins se croisent et c'est l'amour fou. La vie s'efforcera de les séparer mais rien n'y fait, ces deux-là sont comme les deux ventricules du même cœur… <a href="#">voir plus d’infos</a></p>
+            <div class="hero__buttons">
+              <a href="#" class="btn btn--red">Bande annonce</a>
+              <a href="#" class="btn btn--outline">Réserver ma place</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="hero__slide">
+          <img class="hero__bg" src="images/hero-gladiator-2.jpg" alt="">
+          <div class="hero__text">
+            <h1>Gladiator 2</h1>
+            <p>Des années après avoir assisté à la mort du héros vénéré Maximus aux mains de son oncle, Lucius est forcé d'entrer dans le Colisée lorsque son pays est conquis par les empereurs tyranniques qui gouvernent désormais… <a href="#">voir plus d’infos</a></p>
+            <div class="hero__buttons">
+              <a href="#" class="btn btn--red">Bande annonce</a>
+              <a href="#" class="btn btn--outline">Réserver ma place</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="hero__slide">
+          <img class="hero__bg" src="images/hero-wicked.jpg" alt="">
+          <div class="hero__text">
+            <h1>Wicked</h1>
+            <p>Elphaba, une jeune femme incomprise à cause de la couleur inhabituelle de sa peau verte, ne soupçonne même pas l'étendue de ses pouvoirs. À ses côtés, Glinda qui, aussi populaire que privilégiée, ne connaît pas encore la vraie nature de son cœur… <a href="#">voir plus d’infos</a></p>
+            <div class="hero__buttons">
+              <a href="#" class="btn btn--red">Bande annonce</a>
+              <a href="#" class="btn btn--outline">Réserver ma place</a>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div class="hero__dots">
+        <button class="is-active" aria-label="Film 1"></button>
+        <button aria-label="Film 2"></button>
+        <button aria-label="Film 3"></button>
+      </div>
+    </section>
+
+    <!-- ============ À L'AFFICHE ============ -->
+    <section class="affiche">
+      <h2 class="section-title">A l’affiche</h2>
+
+      <div class="affiche__wrapper">
+        <div class="affiche__list">
+          <a href="#" class="poster-card">
+            <div class="poster"><img src="images/affiche-conclave.jpg" alt="Affiche Conclave"></div>
+            <h3>Conclave</h3>
+            <p class="genres"><span>Thriller</span><span>Drame</span></p>
+            <p class="meta"><span>Tout public</span><span>2h00</span></p>
+          </a>
+          <a href="#" class="poster-card">
+            <div class="poster"><img src="images/affiche-gladiator-2.jpg" alt="Affiche Gladiator 2"></div>
+            <h3>Gladiator 2</h3>
+            <p class="genres"><span>Historique</span><span>Drame</span></p>
+            <p class="meta"><span class="warning">Interdit aux -12 ans</span><span>2h30</span></p>
+          </a>
+          <a href="#" class="poster-card">
+            <div class="poster"><img src="images/affiche-wicked.jpg" alt="Affiche Wicked"></div>
+            <h3>Wicked</h3>
+            <p class="genres"><span>Comédie musicale</span><span>Fantastique</span></p>
+            <p class="meta"><span>Tout public</span><span>2h40</span></p>
+          </a>
+          <a href="#" class="poster-card">
+            <div class="poster"><img src="images/affiche-amour-ouf.jpg" alt="Affiche L’amour ouf"></div>
+            <h3>L’amour ouf</h3>
+            <p class="genres"><span>Romance</span><span>Drame</span></p>
+            <p class="meta"><span>Tout public</span><span>2h42</span></p>
+          </a>
+          <a href="#" class="poster-card">
+            <div class="poster"><img src="images/affiche-vaiana-2.jpg" alt="Affiche Vaiana 2"></div>
+            <h3>Vaiana 2</h3>
+            <p class="genres"><span>Animation</span><span>Aventure</span><span>Comédie</span></p>
+            <p class="meta"><span>Tout public</span><span>1h40</span></p>
+          </a>
+          <a href="#" class="poster-card">
+            <div class="poster"><img src="images/affiche-femmes-au-balcon.jpg" alt="Affiche Les femmes au balcon"></div>
+            <h3>Les femmes au balcon</h3>
+            <p class="genres"><span>Comédie</span><span>Drame</span></p>
+            <p class="meta"><span class="warning">Interdit aux -12 ans</span><span>1h50</span></p>
+          </a>
+          <a href="#" class="poster-card">
+            <div class="poster"><img src="images/affiche-plus-precieuse.jpg" alt="Affiche La plus précieuse des marchandises"></div>
+            <h3>La plus précieuse des marchandises</h3>
+            <p class="genres"><span>Historique</span><span>Drame</span></p>
+            <p class="meta"><span>Tout public</span><span>2h30</span></p>
+          </a>
+          <a href="#" class="poster-card">
+            <div class="poster"><img src="images/affiche-en-fanfare.jpg" alt="Affiche En fanfare"></div>
+            <h3>En fanfare</h3>
+            <p class="genres"><span>Comédie</span><span>Musique</span></p>
+            <p class="meta"><span>Tout public</span><span>1h43</span></p>
+          </a>
+        </div>
+
+        <button class="affiche__prev" aria-label="Films précédents">
+          <svg class="chevron" viewBox="0 0 14 14" aria-hidden="true"><path d="m8.5 3.5-3.5 3.5 3.5 3.5"/></svg>
+        </button>
+        <button class="affiche__next" aria-label="Films suivants">
+          <svg class="chevron" viewBox="0 0 14 14" aria-hidden="true"><path d="m5.5 3.5 3.5 3.5-3.5 3.5"/></svg>
+        </button>
+      </div>
+    </section>
+
+    <!-- ============ NOS SÉANCES ============ -->
+    <section class="seances">
+      <h2 class="section-title">Nos séances</h2>
+
+      <div class="days">
+        <div class="days__list">
+          <button class="day is-active"><span>Mar.</span><strong>10</strong><span>Déc.</span></button>
+          <button class="day"><span>Mer.</span><strong>11</strong><span>Déc.</span></button>
+          <button class="day"><span>Jeu.</span><strong>12</strong><span>Déc.</span></button>
+          <button class="day"><span>Ven.</span><strong>13</strong><span>Déc.</span></button>
+          <button class="day"><span>Sam.</span><strong>14</strong><span>Déc.</span></button>
+          <button class="day"><span>Dim.</span><strong>15</strong><span>Déc.</span></button>
+          <button class="day"><span>Lun.</span><strong>16</strong><span>Déc.</span></button>
+        </div>
+        <button class="day day--calendar">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4.5" width="18" height="16" rx="2.5"/><path d="M3 9.5h18M8 2.5v4M16 2.5v4"/><path d="M7.5 13h1M11.5 13h1M15.5 13h1M7.5 16.5h1M11.5 16.5h1"/></svg>
+          <span>Calendrier</span>
+        </button>
+      </div>
+
+      <div class="films" data-state="close">
+        <article class="film">
+          <div class="poster"><img src="images/affiche-conclave.jpg" alt="Affiche Conclave"></div>
+          <div class="film__body">
+            <div>
+              <h3>Conclave</h3>
+              <p class="genres"><span>Thriller</span><span>Drame</span></p>
+              <p class="meta"><span>Tout public</span><span>2h00</span></p>
+              <p class="film__desc">Le Cardinal Lawrence est chargé de gérer ce processus confidentiel après la mort inattendue du Pape bien-aimé. Lorsque tous les dirigeants les plus puissants de l’Église Catholique sont réunis et enfermés dans le Vatican, Lawrence se retrouve au centre d’une conspiration et découvre un secret qui pourrait changer à jamais l’institution religieuse.</p>
+              <a href="#" class="link">Voir plus d’infos</a>
+            </div>
+            <div class="hours">
+              <a href="#" class="hour"><span>16:30</span><span>VF</span></a>
+              <a href="#" class="hour"><span>20:00</span><span>VF</span></a>
+              <a href="#" class="hour"><span>21:30</span><span>VF</span></a>
+            </div>
+          </div>
+        </article>
+
+        <article class="film">
+          <div class="poster"><img src="images/affiche-wicked.jpg" alt="Affiche Wicked"></div>
+          <div class="film__body">
+            <div>
+              <h3>Wicked</h3>
+              <p class="genres"><span>Comédie musicale</span><span>Fantastique</span></p>
+              <p class="meta"><span>Tout public</span><span>2h40</span></p>
+              <p class="film__desc">Elphaba, une jeune femme incomprise à cause de la couleur inhabituelle de sa peau verte ne soupçonne même pas l'étendue de ses pouvoirs. À ses côtés, Glinda qui, aussi populaire que privilégiée, ne connaît pas encore la vraie nature de son cœur.</p>
+              <a href="#" class="link">Voir plus d’infos</a>
+            </div>
+            <div class="hours">
+              <a href="#" class="hour"><span>16:30</span><span>VF</span></a>
+              <a href="#" class="hour"><span>20:00</span><span>VF</span></a>
+              <a href="#" class="hour"><span>21:30</span><span>VF</span></a>
+            </div>
+          </div>
+        </article>
+
+        <article class="film">
+          <div class="poster"><img src="images/affiche-femmes-au-balcon.jpg" alt="Affiche Les femmes au balcon"></div>
+          <div class="film__body">
+            <div>
+              <h3>Les femmes au balcon</h3>
+              <p class="genres"><span>Comédie</span><span>Drame</span></p>
+              <p class="meta"><span class="warning">Interdit aux -12 ans</span><span>1h50</span></p>
+              <p class="film__desc">Trois femmes, dans un appartement à Marseille en pleine canicule. En face, leur mystérieux voisin, objet de tous les fantasmes. Elles se retrouvent coincées dans une affaire terrifiante et délirante avec comme seule quête, leur liberté.</p>
+              <a href="#" class="link">Voir plus d’infos</a>
+            </div>
+            <div class="hours">
+              <a href="#" class="hour"><span>16:30</span><span>VF</span></a>
+              <a href="#" class="hour"><span>20:00</span><span>VF</span></a>
+              <a href="#" class="hour"><span>21:30</span><span>VF</span></a>
+            </div>
+          </div>
+        </article>
+
+        <article class="film">
+          <div class="poster"><img src="images/affiche-gladiator-2.jpg" alt="Affiche Gladiator 2"></div>
+          <div class="film__body">
+            <div>
+              <h3>Gladiator II</h3>
+              <p class="genres"><span>Historique</span><span>Drame</span></p>
+              <p class="meta"><span class="warning">Interdit aux -12 ans</span><span>2h30</span></p>
+              <p class="film__desc">Des années après avoir assisté à la mort du héros vénéré Maximus aux mains de son oncle, Lucius est forcé d'entrer dans le Colisée lorsque son pays est conquis par les empereurs tyranniques qui gouvernent désormais Rome d'une main de fer. La rage au cœur et l'avenir de l'Empire en jeu, Lucius doit se tourner vers son passé pour trouver la force et l'honneur de rendre la gloire de Rome à son peuple.</p>
+              <a href="#" class="link">Voir plus d’infos</a>
+            </div>
+            <div class="hours">
+              <a href="#" class="hour"><span>16:30</span><span>VF</span></a>
+              <a href="#" class="hour"><span>20:00</span><span>VF</span></a>
+              <a href="#" class="hour"><span>21:30</span><span>VF</span></a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Films cachés tant qu'on n'a pas cliqué sur "Voir plus de film" -->
+        <article class="film film--extra">
+          <div class="poster"><img src="images/affiche-plus-precieuse.jpg" alt="Affiche La plus précieuse des marchandises"></div>
+          <div class="film__body">
+            <div>
+              <h3>La plus précieuse des marchandises</h3>
+              <p class="genres"><span>Historique</span><span>Drame</span></p>
+              <p class="meta"><span>Tout public</span><span>2h30</span></p>
+              <p class="film__desc">Il était une fois, dans un grand bois, un pauvre bûcheron et une pauvre bûcheronne. Le froid, la faim, la misère, et partout autour d’eux la guerre, leur rendaient la vie bien difficile. Un jour, la pauvre bûcheronne recueille un bébé. Un bébé jeté d’un des nombreux trains qui traversent sans cesse leur bois. Protégée quoi qu’il en coûte, cette petite marchandise va bouleverser la vie de cette femme, de son mari, et de tous ceux qui vont croiser son destin, jusqu’à l’homme qui l’a jetée du train.</p>
+              <a href="#" class="link">Voir plus d’infos</a>
+            </div>
+            <div class="hours">
+              <a href="#" class="hour"><span>16:30</span><span>VF</span></a>
+              <a href="#" class="hour"><span>20:00</span><span>VF</span></a>
+              <a href="#" class="hour"><span>21:30</span><span>VF</span></a>
+            </div>
+          </div>
+        </article>
+
+        <article class="film film--extra">
+          <div class="poster"><img src="images/affiche-vaiana-2.jpg" alt="Affiche Vaiana 2"></div>
+          <div class="film__body">
+            <div>
+              <h3>Vaiana 2</h3>
+              <p class="genres"><span>Animation</span><span>Aventure</span><span>Comédie</span></p>
+              <p class="meta"><span>Tout public</span><span>1h40</span></p>
+              <p class="film__desc">Après avoir reçu une invitation inattendue de ses ancêtres, Vaiana entreprend un périple qui la conduira jusqu’aux eaux dangereuses situées aux confins des mers des îles du Pacifique. Elle y vivra des péripéties comme jamais vécues auparavant.</p>
+              <a href="#" class="link">Voir plus d’infos</a>
+            </div>
+            <div class="hours">
+              <a href="#" class="hour"><span>16:30</span><span>VF</span></a>
+              <a href="#" class="hour"><span>20:00</span><span>VF</span></a>
+              <a href="#" class="hour"><span>21:30</span><span>VF</span></a>
+            </div>
+          </div>
+        </article>
+
+        <article class="film film--extra">
+          <div class="poster"><img src="images/affiche-amour-ouf.jpg" alt="Affiche L’amour ouf"></div>
+          <div class="film__body">
+            <div>
+              <h3>L’amour ouf</h3>
+              <p class="genres"><span>Romance</span><span>Drame</span></p>
+              <p class="meta"><span>Tout public</span><span>2h42</span></p>
+              <p class="film__desc">Les années 80, dans le nord de la France. Jackie et Clotaire grandissent entre les bancs du lycée et les docks du port. Elle étudie, il traîne. Et puis leurs destins se croisent et c'est l'amour fou. La vie s'efforcera de les séparer mais rien n'y fait, ces deux-là sont comme les deux ventricules du même cœur.</p>
+              <a href="#" class="link">Voir plus d’infos</a>
+            </div>
+            <div class="hours">
+              <a href="#" class="hour"><span>16:30</span><span>VF</span></a>
+              <a href="#" class="hour"><span>20:00</span><span>VF</span></a>
+              <a href="#" class="hour"><span>21:30</span><span>VF</span></a>
+            </div>
+          </div>
+        </article>
+
+        <article class="film film--extra">
+          <div class="poster"><img src="images/affiche-en-fanfare.jpg" alt="Affiche En fanfare"></div>
+          <div class="film__body">
+            <div>
+              <h3>En fanfare</h3>
+              <p class="genres"><span>Comédie</span><span>Musique</span></p>
+              <p class="meta"><span>Tout public</span><span>1h43</span></p>
+              <p class="film__desc">Thibaut est un chef d'orchestre de renommée internationale. Lorsqu'il apprend qu'il a été adopté, il découvre l'existence d'un frère, Jimmy, employé de cantine scolaire dans le nord de la France, qui joue du trombone dans une fanfare.</p>
+              <a href="#" class="link">Voir plus d’infos</a>
+            </div>
+            <div class="hours">
+              <a href="#" class="hour"><span>16:30</span><span>VF</span></a>
+              <a href="#" class="hour"><span>20:00</span><span>VF</span></a>
+              <a href="#" class="hour"><span>21:30</span><span>VF</span></a>
+            </div>
+          </div>
+        </article>
+
+        <button class="btn btn--red films__toggle">Voir plus de film (4)</button>
+      </div>
+    </section>
+
+    <!-- ============ LES ACTUALITÉS ============ -->
+    <section class="actus">
+      <h2 class="section-title">Les actualités du Family Cinéma</h2>
+
+      <div class="actus__top">
+        <div class="actus__col">
+          <article class="actu-card">
+            <div class="actu-card__text">
+              <h3>Séance jeunes parents</h3>
+              <p class="actu-card__when">Un jeudi par mois - 13h45</p>
+              <ul>
+                <li>Séance adaptée aux jeunes parents qui viennent d'avoir un bébé.</li>
+                <li>Son adapté à la présence de nourrissons de moins de 2 ans,</li>
+                <li>Table à langer,</li>
+                <li>Lumière tamisée</li>
+              </ul>
+              <p>Les parents peuvent se déplacer dans la salle si besoin et les bébés faire leur sieste ;)</p>
+              <a href="#" class="link">Voir plus d’infos</a>
+            </div>
+            <img class="actu-card__img" src="images/seance-jeunes-parents.png" alt="Logo Séance jeunes parents">
+          </article>
+
+          <article class="actu-card">
+            <div class="actu-card__text">
+              <h3>Mon premier ciné</h3>
+              <p class="actu-card__when">Premier mercredi du mois - 16h</p>
+              <p>Les premiers mercredis du mois à 16h, une séance rien que pour vous qui n'êtes jamais venu au cinéma :</p>
+              <ul>
+                <li>Son réduit,</li>
+                <li>La lumière reste allumée si vous avez peur,</li>
+                <li>Séance courte,</li>
+                <li>Et un petit diplôme pour garder un souvenir de ce jour.</li>
+              </ul>
+              <p>Les copains qui connaissent le cinéma peuvent également venir évidemment.</p>
+              <a href="#" class="link">Voir plus d’infos</a>
+            </div>
+            <img class="actu-card__img" src="images/mon-premier-cine.png" alt="Logo Mon premier ciné">
+          </article>
+        </div>
+
+        <img class="actus__poster" src="images/avant-premiere-surprise.jpg" alt="Avant-première surprise : chaque mois, les premiers mardis à 20h30">
+      </div>
+
+      <div class="actus__bottom">
+        <article class="actu-card">
+          <div class="actu-card__text">
+            <h3>Jeudi solidarité</h3>
+            <p class="actu-card__when">Tous les jeudis soirs</p>
+            <p>Tous les jeudis soirs, pour une place achetée au tarif habituel, 0,50 euro sera reversé à deux associations solidaires.<br>
+              Cette année, le Family Cinéma a retenu : LA CROIX ROUGE et PONT &amp; PIGNONS</p>
+            <a href="#" class="link">Voir plus d’infos</a>
+          </div>
+          <img class="actu-card__img" src="images/jeudi-solidarite.png" alt="Ticket Jeudi solidarité">
+        </article>
+
+        <article class="actu-card actu-card--news">
+          <div class="actu-card__text">
+            <h3>News Family</h3>
+            <p class="actu-card__sub">Inscrivez-vous à la Newsletter</p>
+            <p>Retrouvez tous les mois la News du Family Cinéma !<br>Avec tout le détail des animations et évènements à venir.</p>
+            <a href="#" class="link">Voir plus d’infos</a>
+          </div>
+          <label class="search search--dark">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="1.5" class="fill"/><path d="m3.5 6 8.5 7 8.5-7" class="cut"/></svg>
+            <input type="email" placeholder="Inscrivez-vous à la Newsletter">
+          </label>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ PIED DE PAGE ============ -->
+  <footer class="footer">
+    <div class="footer__top">
+      <div class="footer__left">
+        <div>
+          <p class="footer__title">Pour recevoir les dernières actualités</p>
+          <label class="search">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="1.5" class="fill"/><path d="m3.5 6 8.5 7 8.5-7" class="cut"/></svg>
+            <input type="email" placeholder="Inscrivez-vous à la Newsletter">
+          </label>
+        </div>
+        <div>
+          <p class="footer__title">Suivez-nous :</p>
+          <div class="socials">
+            <a href="#" class="social social--insta" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="5" width="14" height="14" rx="4"/><circle cx="12" cy="12" r="3.3"/><circle cx="16.1" cy="7.9" r=".6" class="dot"/></svg>
+            </a>
+            <a href="#" class="social social--fb" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.2 21v-7.2h2.4l.4-2.9h-2.8V9.1c0-.8.3-1.4 1.4-1.4H16V5.2c-.3 0-1.1-.1-2.1-.1-2.1 0-3.5 1.3-3.5 3.6v2.2H8v2.9h2.4V21"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <a href="#" class="btn btn--red btn--icon">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7 10.5l5 5 5-5M5 20h14"/></svg>
+        Télécharger le programme
+      </a>
+
+      <img class="footer__logo" src="images/logo.png" alt="Family Cinéma">
+    </div>
+
+    <div class="footer__bottom">
+      <p class="footer__address">
+        <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+        Family Cinéma : 89, boulevard Jean Jaurès 42170 Saint-Just Saint-Rambert
+      </p>
+      <nav class="footer__links">
+        <a href="#">mention légale</a>
+        <a href="#">contact</a>
+        <a href="#">politique de confidentialité</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
