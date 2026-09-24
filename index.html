@@ -32,21 +32,64 @@
           <ul class="search__results" id="search-results" role="listbox" hidden></ul>
         </div>
 
-        <nav class="nav__menu">
-          <a href="#affiche">Film <img class="chevron" src="images/icons/chevron.svg" alt=""></a>
+        <nav class="nav__menu" aria-label="Menu principal">
+          <div class="menu-item">
+            <button class="menu-item__btn" aria-expanded="false" aria-controls="menu-film">Film <img class="chevron" src="images/icons/chevron.svg" alt=""></button>
+            <ul class="dropdown" id="menu-film">
+              <li><a href="#affiche"><strong>À l’affiche</strong><small>Tous les films du moment</small></a></li>
+              <li><a href="#seances"><strong>Séances du jour</strong><small>Horaires et réservation</small></a></li>
+              <li><a href="#seances" data-filter-link="enfants"><strong>Jeune public</strong><small>Les films pour les enfants</small></a></li>
+              <li><a href="#"><strong>Programme de la semaine</strong><small>Tous les horaires d’un coup d’œil</small></a></li>
+            </ul>
+          </div>
           <span class="nav__sep"></span>
-          <a href="#tarifs">Tarif <img class="chevron" src="images/icons/chevron.svg" alt=""></a>
+          <div class="menu-item">
+            <button class="menu-item__btn" aria-expanded="false" aria-controls="menu-tarif">Tarif <img class="chevron" src="images/icons/chevron.svg" alt=""></button>
+            <ul class="dropdown" id="menu-tarif">
+              <li><a href="#tarifs"><strong>Nos tarifs</strong><small>Plein, réduit, moins de 14 ans</small></a></li>
+              <li><a href="#"><strong>Carte abonné</strong><small>10 places à 6 € la place</small></a></li>
+              <li><a href="#"><strong>Groupes & scolaires</strong><small>Tarifs à partir de 10 personnes</small></a></li>
+            </ul>
+          </div>
           <span class="nav__sep"></span>
-          <a href="#actus">Événement <img class="chevron" src="images/icons/chevron.svg" alt=""></a>
+          <div class="menu-item">
+            <button class="menu-item__btn" aria-expanded="false" aria-controls="menu-evenement">Événement <img class="chevron" src="images/icons/chevron.svg" alt=""></button>
+            <ul class="dropdown" id="menu-evenement">
+              <li><a href="#"><strong>Avant-première surprise</strong><small>Chaque 1er mardi · 20h30</small></a></li>
+              <li><a href="#"><strong>Séance jeunes parents</strong><small>Un jeudi par mois · 13h45</small></a></li>
+              <li><a href="#"><strong>Mon premier ciné</strong><small>1er mercredi du mois · 16h</small></a></li>
+              <li><a href="#"><strong>Jeudi solidarité</strong><small>Tous les jeudis soirs</small></a></li>
+            </ul>
+          </div>
           <span class="nav__sep"></span>
-          <a href="#">Prestation <img class="chevron" src="images/icons/chevron.svg" alt=""></a>
+          <div class="menu-item">
+            <button class="menu-item__btn" aria-expanded="false" aria-controls="menu-prestation">Prestation <img class="chevron" src="images/icons/chevron.svg" alt=""></button>
+            <ul class="dropdown" id="menu-prestation">
+              <li><a href="#"><strong>Location de salle</strong><small>Pour vos réunions et projections</small></a></li>
+              <li><a href="#"><strong>Séances scolaires</strong><small>Écoles, collèges, lycées</small></a></li>
+              <li><a href="#"><strong>Anniversaire au cinéma</strong><small>Une séance + un goûter</small></a></li>
+            </ul>
+          </div>
           <span class="nav__sep"></span>
-          <a href="#">À propos <img class="chevron" src="images/icons/chevron.svg" alt=""></a>
+          <div class="menu-item">
+            <button class="menu-item__btn" aria-expanded="false" aria-controls="menu-apropos">À propos <img class="chevron" src="images/icons/chevron.svg" alt=""></button>
+            <ul class="dropdown" id="menu-apropos">
+              <li><a href="#"><strong>Notre cinéma</strong><small>Un cinéma de quartier depuis 1990</small></a></li>
+              <li><a href="#"><strong>Accessibilité</strong><small>Salles accessibles, audiodescription</small></a></li>
+            </ul>
+          </div>
           <span class="nav__sep"></span>
-          <a href="#infos">Contact <img class="chevron" src="images/icons/chevron.svg" alt=""></a>
+          <div class="menu-item">
+            <button class="menu-item__btn" aria-expanded="false" aria-controls="menu-contact">Contact <img class="chevron" src="images/icons/chevron.svg" alt=""></button>
+            <ul class="dropdown" id="menu-contact">
+              <li><a href="#infos"><strong>Nous trouver</strong><small>Adresse et itinéraire</small></a></li>
+              <li><a href="#"><strong>Nous écrire</strong><small>Formulaire de contact</small></a></li>
+              <li><a href="#actus" data-focus="newsletter-email"><strong>Newsletter</strong><small>Recevoir la News Family</small></a></li>
+            </ul>
+          </div>
         </nav>
 
-        <a href="#tarifs" class="btn btn--card">Ma carte abonné</a>
+        <a href="#" class="btn btn--card">Ma carte abonné</a>
       </div>
     </div>
   </header>
@@ -125,11 +168,13 @@
       <div class="toolbar">
         <div class="days">
           <div class="days__list" role="tablist" aria-label="Choisir un jour"></div>
-          <label class="day day--calendar">
-            <img class="icon" src="images/icons/calendrier.svg" alt="">
-            <span>Calendrier</span>
-            <input type="date" id="date-picker" aria-label="Choisir une date dans le calendrier">
-          </label>
+          <div class="calendar">
+            <button class="day day--calendar" aria-expanded="false" aria-controls="calendar-pop">
+              <img class="icon" src="images/icons/calendrier.svg" alt="">
+              <span>Calendrier</span>
+            </button>
+            <div class="calendar__pop" id="calendar-pop" role="dialog" aria-label="Choisir une date" hidden></div>
+          </div>
         </div>
 
         <div class="filters" role="group" aria-label="Filtrer les films">
@@ -294,7 +339,7 @@
 
     <nav class="footer__links">
       <a href="#">Mentions légales</a>
-      <a href="#infos">Contact</a>
+      <a href="#">Contact</a>
       <a href="#">Politique de confidentialité</a>
     </nav>
   </footer>

@@ -275,7 +275,8 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   justify-content: space-between;
   flex: 1;
 }
-.nav__menu a {
+.menu-item { position: relative; }
+.menu-item__btn {
   display: flex;
   align-items: center;
   gap: 6px;
@@ -284,12 +285,54 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   font-weight: 700;
   letter-spacing: .03em;
   text-transform: uppercase;
-  text-decoration: none;
   color: var(--blanc-2);
   white-space: nowrap;
   transition: color .2s;
 }
-.nav__menu a:hover { color: var(--accent); }
+.menu-item__btn .chevron { transition: transform .2s; }
+.menu-item__btn:hover,
+.menu-item.is-open .menu-item__btn { color: var(--accent); }
+.menu-item.is-open .chevron { transform: rotate(180deg); }
+
+/* Menu déroulant */
+.dropdown {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  z-index: 5;
+  min-width: 250px;
+  padding: 8px;
+  margin-top: 8px;
+  border: 1px solid rgba(255, 255, 255, .08);
+  border-radius: var(--radius);
+  background: rgba(16, 16, 16, .97);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, .45);
+  list-style: none;
+  opacity: 0;
+  visibility: hidden;
+  transform: translate(-50%, -6px);
+  transition: opacity .2s, transform .2s, visibility .2s;
+}
+/* petite zone invisible pour ne pas perdre le survol entre le bouton et le menu */
+.dropdown::before { content: ""; position: absolute; left: 0; right: 0; top: -12px; height: 12px; }
+.menu-item.is-open .dropdown { opacity: 1; visibility: visible; transform: translate(-50%, 0); }
+.dropdown a {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 10px 12px;
+  border-radius: var(--radius);
+  text-decoration: none;
+  transition: background-color .15s;
+}
+.dropdown a:hover,
+.dropdown a:focus-visible { background: rgba(255, 255, 255, .08); }
+.dropdown strong { font-size: 14px; color: var(--white); }
+.dropdown small { font-size: 12px; color: rgba(255, 255, 255, .6); }
+/* le dernier menu (Contact) s'aligne à droite pour ne pas sortir de l'écran */
+.menu-item:last-child .dropdown { left: auto; right: 0; transform: translateY(-6px); }
+.menu-item:last-child.is-open .dropdown { transform: translateY(0); }
+
 .nav__sep { width: 1px; height: 16px; background: rgba(247, 247, 247, .5); }
 
 .nav__burger { display: none; }
@@ -580,20 +623,62 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 
 .day--calendar {
   gap: 6px;
-  font-size: 11px;
+  font-size: 10px;
+  letter-spacing: .02em;
   opacity: 1;
   cursor: pointer;
 }
-/* le vrai champ date est invisible, posé sur la case « Calendrier » */
-.day--calendar input {
+.day--calendar[aria-expanded="true"] { box-shadow: 0 0 0 2px var(--black); }
+
+/* Calendrier qui s'ouvre sous le bouton */
+.calendar { position: relative; }
+.calendar__pop {
   position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-  cursor: pointer;
+  top: calc(100% + 10px);
+  right: 0;
+  z-index: 20;
+  width: 300px;
+  padding: 16px;
+  border-radius: var(--radius);
+  background: var(--white);
+  color: var(--black);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, .25);
 }
-.day--calendar:focus-within { outline: 3px solid var(--focus); outline-offset: 2px; }
+.calendar__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  text-transform: capitalize;
+}
+.calendar__nav {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius);
+  font-size: 22px;
+  line-height: 1;
+}
+.calendar__nav:hover:not(:disabled) { background: var(--blanc-2); }
+.calendar__nav:disabled { opacity: .25; cursor: default; }
+.calendar__grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+  text-align: center;
+}
+.calendar__dow { padding-bottom: 4px; font-size: 11px; font-weight: 700; color: var(--grey); }
+.calendar__day {
+  aspect-ratio: 1;
+  border-radius: var(--radius);
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
+}
+.calendar__day:hover:not(:disabled) { background: var(--blanc-2); }
+.calendar__day:disabled { color: #c4c4c4; cursor: default; }
+.calendar__day.is-today { font-weight: 700; box-shadow: inset 0 0 0 1px var(--black); }
+.calendar__day.is-selected { background: var(--red); color: var(--white); font-weight: 700; box-shadow: none; }
+.calendar__day.is-selected:hover { background: var(--red-dark); }
+.calendar__foot { margin-top: 10px; font-size: 11px; color: var(--grey); text-align: center; }
 
 .filters {
   display: flex;
@@ -894,7 +979,7 @@ a.hour:hover { border-color: var(--red); }
    ========================================================= */
 @media (max-width: 1280px) {
   .nav__content .search-box { width: 170px; }
-  .nav__menu a { padding: 8px 4px; }
+  .menu-item__btn { padding: 8px 4px; }
   .nav__content { gap: 16px; }
 }
 
@@ -925,14 +1010,34 @@ a.hour:hover { border-color: var(--red); }
     align-items: stretch;
     gap: 16px;
     padding: 16px var(--gutter) 24px;
-    background: rgba(16, 16, 16, .97);
+    background: var(--black);
     display: none;
   }
   .nav.is-open .nav__content { display: flex; }
+  /* menu ouvert : fond plein (le flou de la barre laissait voir la page derrière) */
+  .nav.is-open { background: var(--black); backdrop-filter: none; -webkit-backdrop-filter: none; }
   .nav__content .search-box { width: 100%; }
   .search__results { width: 100%; }
+  .nav__content { max-height: calc(100vh - var(--nav-h)); overflow-y: auto; }
   .nav__menu { flex-direction: column; align-items: stretch; }
-  .nav__menu a { justify-content: space-between; padding: 12px 0; font-size: 15px; }
+  .menu-item__btn { width: 100%; justify-content: space-between; padding: 12px 0; font-size: 15px; }
+  /* sur mobile, les menus s'ouvrent en accordéon */
+  .dropdown,
+  .menu-item:last-child .dropdown {
+    position: static;
+    display: none;
+    min-width: 0;
+    margin: 0 0 8px;
+    padding: 0 0 0 8px;
+    border: 0;
+    background: none;
+    box-shadow: none;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+  }
+  .menu-item.is-open .dropdown { display: block; transform: none; }
+  .dropdown a { padding: 8px 12px; }
   .nav__sep { width: 100%; height: 1px; opacity: .2; }
   .nav__content .btn { align-self: flex-start; }
 
@@ -976,6 +1081,7 @@ a.hour:hover { border-color: var(--red); }
   .day::before { width: 40px; }
   .day--calendar { flex: 0 0 60px; }
   .day--calendar span { display: none; }
+  .calendar__pop { position: fixed; top: auto; bottom: 16px; left: 16px; right: 16px; width: auto; }
   .filters { padding: 2px var(--gutter); }
 
   .film { gap: 16px; padding: 24px var(--gutter); }

@@ -142,7 +142,6 @@ updateArrows();
    4. « NOS SÉANCES » : jours, filtres, horaires
    --------------------------------------------------------- */
 const daysList = document.querySelector(".days__list");
-const datePicker = document.getElementById("date-picker");
 const filmsBox = document.querySelector(".films");
 const filterButtons = document.querySelectorAll(".chip--filter");
 
@@ -186,16 +185,7 @@ function renderDays() {
   }
 }
 
-/* Calendrier : ouvre le sélecteur de date du navigateur */
-datePicker.min = inputValue(today);
-datePicker.addEventListener("click", function () {
-  if (datePicker.showPicker) { try { datePicker.showPicker(); } catch (e) { /* rien */ } }
-});
-datePicker.addEventListener("change", function () {
-  if (!datePicker.value) return;
-  const parts = datePicker.value.split("-");
-  const d = new Date(parts[0], parts[1] - 1, parts[2]);
-  if (d < today) return;
+function selectDate(d) {
   selectedDate = d;
   // si la date est en dehors des 7 jours affichés, la barre commence à cette date
   const end = new Date(startDate);
@@ -203,7 +193,7 @@ datePicker.addEventListener("change", function () {
   if (d < startDate || d > end) startDate = new Date(d);
   renderDays();
   renderFilms();
-});
+}
 
 function filmMatches(film) {
   if (currentFilter === "famille") return film.public === "tous";
@@ -487,3 +477,150 @@ document.querySelectorAll(".newsletter__form").forEach(function (form) {
 });
 
 watchImages(document);
+
+/* =========================================================
+   10. MENUS DÉROULANTS DE LA BARRE DE NAVIGATION
+   - ordinateur : s'ouvrent au survol ou au clic
+   - mobile : s'ouvrent comme un accordéon dans le menu burger
+   ========================================================= */
+const menuItems = document.querySelectorAll(".menu-item");
+
+function closeDropdowns(except) {
+  menuItems.forEach(function (item) {
+    if (item === except) return;
+    item.classList.remove("is-open");
+    item.querySelector(".menu-item__btn").setAttribute("aria-expanded", "false");
+  });
+}
+
+menuItems.forEach(function (item) {
+  const btn = item.querySelector(".menu-item__btn");
+  btn.addEventListener("click", function () {
+    // sur ordinateur le survol ouvre déjà le menu : le clic le garde ouvert
+    const hoverMode = window.matchMedia("(hover: hover) and (min-width: 1101px)").matches;
+    const open = hoverMode ? true : !item.classList.contains("is-open");
+    closeDropdowns(item);
+    item.classList.toggle("is-open", open);
+    btn.setAttribute("aria-expanded", open);
+  });
+  // sur ordinateur, ouverture au survol
+  item.addEventListener("mouseenter", function () {
+    if (window.matchMedia("(hover: hover) and (min-width: 1101px)").matches) {
+      closeDropdowns(item);
+      item.classList.add("is-open");
+      btn.setAttribute("aria-expanded", "true");
+    }
+  });
+  item.addEventListener("mouseleave", function () {
+    if (window.matchMedia("(hover: hover) and (min-width: 1101px)").matches) {
+      item.classList.remove("is-open");
+      btn.setAttribute("aria-expanded", "false");
+    }
+  });
+});
+
+// un clic sur un lien du menu referme tout
+document.querySelectorAll(".dropdown a").forEach(function (a) {
+  a.addEventListener("click", function () {
+    closeDropdowns();
+    closeMenu();
+    if (a.dataset.filterLink) setFilter(a.dataset.filterLink);
+    if (a.dataset.focus) {
+      setTimeout(function () { document.getElementById(a.dataset.focus).focus({ preventScroll: true }); }, 600);
+    }
+  });
+});
+
+document.addEventListener("click", function (event) {
+  if (!event.target.closest(".menu-item")) closeDropdowns();
+});
+document.addEventListener("keydown", function (event) {
+  if (event.key === "Escape") { closeDropdowns(); closeCalendar(); }
+});
+
+/* =========================================================
+   11. CALENDRIER (s'ouvre sous le bouton « Calendrier »)
+   ========================================================= */
+const calBtn = document.querySelector(".day--calendar");
+const calPop = document.getElementById("calendar-pop");
+const MAX_DAYS = 60;                         // programme disponible sur 60 jours
+const lastDay = new Date(today);
+lastDay.setDate(today.getDate() + MAX_DAYS);
+let calMonth = new Date(today.getFullYear(), today.getMonth(), 1);
+
+function renderCalendar() {
+  const year = calMonth.getFullYear(), month = calMonth.getMonth();
+  const first = new Date(year, month, 1);
+  const offset = (first.getDay() + 6) % 7;   // lundi = 0
+  const daysInMonth = new Date(year, month + 1, 0).getDate();
+  const canPrev = calMonth > new Date(today.getFullYear(), today.getMonth(), 1);
+  const canNext = new Date(year, month + 1, 1) <= lastDay;
+
+  let html =
+    '<div class="calendar__head">' +
+      '<button class="calendar__nav" data-cal="-1" aria-label="Mois précédent"' + (canPrev ? "" : " disabled") + ">‹</button>" +
+      "<strong>" + fmt(first, { month: "long", year: "numeric" }) + "</strong>" +
+      '<button class="calendar__nav" data-cal="1" aria-label="Mois suivant"' + (canNext ? "" : " disabled") + ">›</button>" +
+    "</div>" +
+    '<div class="calendar__grid">' +
+      ["L", "M", "M", "J", "V", "S", "D"].map(function (d) { return '<span class="calendar__dow">' + d + "</span>"; }).join("");
+
+  for (let i = 0; i < offset; i++) html += "<span></span>";
+  for (let day = 1; day <= daysInMonth; day++) {
+    const d = new Date(year, month, day);
+    const disabled = d < today || d > lastDay;
+    const cls = ["calendar__day"];
+    if (sameDay(d, today)) cls.push("is-today");
+    if (sameDay(d, selectedDate)) cls.push("is-selected");
+    html += '<button class="' + cls.join(" ") + '" data-day="' + day + '"' + (disabled ? " disabled" : "") +
+            ' aria-label="' + fmt(d, { weekday: "long", day: "numeric", month: "long" }) + '">' + day + "</button>";
+  }
+  html += "</div>" +
+    '<p class="calendar__foot">Programme disponible jusqu’au ' + fmt(lastDay, { day: "numeric", month: "long" }) + "</p>";
+  calPop.innerHTML = html;
+}
+
+function openCalendar() {
+  calMonth = new Date(selectedDate.getFullYear(), selectedDate.getMonth(), 1);
+  renderCalendar();
+  calPop.hidden = false;
+  calBtn.setAttribute("aria-expanded", "true");
+  const sel = calPop.querySelector(".is-selected") || calPop.querySelector(".calendar__day:not([disabled])");
+  if (sel) sel.focus({ preventScroll: true });
+}
+function closeCalendar() {
+  if (calPop.hidden) return;
+  calPop.hidden = true;
+  calBtn.setAttribute("aria-expanded", "false");
+}
+
+calBtn.addEventListener("click", function (event) {
+  event.stopPropagation();
+  calPop.hidden ? openCalendar() : closeCalendar();
+});
+calPop.addEventListener("click", function (event) {
+  event.stopPropagation();
+  const nav = event.target.closest("[data-cal]");
+  if (nav) {
+    calMonth = new Date(calMonth.getFullYear(), calMonth.getMonth() + Number(nav.dataset.cal), 1);
+    renderCalendar();
+    return;
+  }
+  const dayBtn = event.target.closest("[data-day]");
+  if (dayBtn) {
+    selectDate(new Date(calMonth.getFullYear(), calMonth.getMonth(), Number(dayBtn.dataset.day)));
+    closeCalendar();
+    calBtn.focus();
+  }
+});
+document.addEventListener("click", closeCalendar);
+
+/* =========================================================
+   12. LIENS PAS ENCORE BRANCHÉS
+   Les liens « # » (réserver, bande annonce, réseaux…) ne mènent nulle part
+   pour l'instant : on évite juste que la page remonte tout en haut au clic.
+   ========================================================= */
+document.addEventListener("click", function (event) {
+  const link = event.target.closest('a[href="#"]');
+  if (link && !link.classList.contains("nav__logo")) event.preventDefault();
+});
