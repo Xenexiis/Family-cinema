@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Propositions — Actualités</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .proposal-label {
+      padding: 24px var(--gutter);
+      background: var(--red);
+      font-size: 20px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    /* Éléments communs aux deux propositions */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 10px;
+      border-radius: 20px;
+      background: var(--red);
+      color: var(--white);
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+    .chip {
+      padding: 6px 10px;
+      border-radius: 20px;
+      border: 1px solid currentColor;
+      font-size: 12px;
+      opacity: .85;
+    }
+    .arrow-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 700;
+      text-transform: uppercase;
+      text-decoration: none;
+      font-size: 14px;
+    }
+    .arrow-link::after { content: "→"; transition: transform .2s; }
+    .arrow-link:hover::after { transform: translateX(4px); }
+
+    /* Bandeau newsletter (commun) */
+    .newsletter {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+      margin: 0 var(--gutter);
+      padding: 32px 40px;
+      border-radius: 8px;
+      background: var(--red);
+    }
+    .newsletter h3 { font-size: 32px; font-weight: 700; text-transform: uppercase; }
+    .newsletter p { margin-top: 6px; }
+    .newsletter form { display: flex; flex: 0 1 460px; }
+    .newsletter input {
+      flex: 1;
+      min-width: 0;
+      padding: 14px 16px;
+      border: 0;
+      border-radius: 4px 0 0 4px;
+      font: inherit;
+    }
+    .newsletter button {
+      padding: 14px 20px;
+      border-radius: 0 4px 4px 0;
+      background: var(--black);
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    /* =====================================================
+       PROPOSITION 1 — Grille « à la une »
+       ===================================================== */
+    .p1 {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      padding: 52px 0;
+      background: var(--grey-black);
+    }
+    .p1__intro { padding: 0 var(--gutter); }
+    .p1__intro p { margin-top: 8px; opacity: .7; }
+
+    .p1__grid {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 20px;
+      padding: 0 var(--gutter);
+    }
+
+    /* Grande carte à la une */
+    .feature {
+      display: flex;
+      flex-direction: column;
+      border-radius: 8px;
+      overflow: hidden;
+      background: var(--black);
+      border: 1px solid rgba(255,255,255,.08);
+      text-decoration: none;
+      transition: border-color .2s;
+    }
+    .feature:hover { border-color: var(--red); }
+    .feature__img { height: 360px; overflow: hidden; background: #d7a53e; }
+    .feature__img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
+      transition: transform .4s;
+    }
+    .feature:hover .feature__img img { transform: scale(1.03); }
+    .feature__content {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 28px 32px 32px;
+    }
+    .feature h3 { font-size: 40px; font-weight: 700; text-transform: uppercase; line-height: 1; }
+    .feature p { opacity: .85; }
+    .feature__price { font-size: 14px; font-weight: 700; }
+
+    /* Petites cartes */
+    .p1__side { display: flex; flex-direction: column; gap: 20px; }
+    .event {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      padding: 24px;
+      border-radius: 8px;
+      background: var(--black);
+      border: 1px solid rgba(255,255,255,.08);
+      transition: border-color .2s, transform .2s;
+    }
+    .event:hover { border-color: var(--red); transform: translateY(-2px); }
+    .event__img {
+      flex: 0 0 120px;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      background: var(--white);
+    }
+    .event__img--ticket { object-fit: contain; padding: 10px; }
+    .event__text { display: flex; flex-direction: column; align-items: flex-start; gap: 10px; }
+    .event h3 { font-size: 24px; font-weight: 700; text-transform: uppercase; }
+    .event p { font-size: 14px; opacity: .8; }
+
+    /* =====================================================
+       PROPOSITION 2 — Agenda « Nos rendez-vous »
+       ===================================================== */
+    .p2 {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      padding: 52px 0;
+      background: var(--blanc-2);
+      color: var(--black);
+    }
+    .p2 .section-title { color: var(--black); }
+    .p2__intro { padding: 0 var(--gutter); }
+    .p2__intro p { margin-top: 8px; color: #555; }
+
+    .p2__grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      padding: 0 var(--gutter);
+    }
+    .rdv {
+      display: flex;
+      flex-direction: column;
+      border-radius: 8px;
+      overflow: hidden;
+      background: var(--white);
+      box-shadow: 0 4px 12px rgba(0,0,0,.08);
+      transition: transform .2s, box-shadow .2s;
+    }
+    .rdv:hover { transform: translateY(-4px); box-shadow: 0 10px 24px rgba(0,0,0,.14); }
+    .rdv__visual {
+      position: relative;
+      display: grid;
+      place-items: center;
+      height: 220px;
+      background: var(--white);
+      border-bottom: 1px solid #eee;
+    }
+    .rdv__visual img { max-width: 70%; max-height: 180px; object-fit: contain; }
+    .rdv__visual--cover img {
+      position: absolute;
+      inset: 0;
+      max-width: none;
+      max-height: none;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
+    }
+    .rdv__date {
+      position: absolute;
+      z-index: 1;
+      top: 12px;
+      left: 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-width: 70px;
+      padding: 6px 10px 8px;
+      border-radius: 4px;
+      background: var(--white);
+      box-shadow: var(--shadow);
+      font-weight: 700;
+      text-transform: uppercase;
+      text-align: center;
+      font-size: 12px;
+    }
+    .rdv__date::before {
+      content: "";
+      width: 100%;
+      height: 3px;
+      margin: -6px 0 6px;
+      background: var(--red);
+    }
+    .rdv__date strong { font-size: 20px; }
+    .rdv__body {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 20px;
+    }
+    .rdv h3 { font-size: 20px; font-weight: 700; text-transform: uppercase; }
+    .rdv p { font-size: 14px; color: #333; }
+    .rdv .chips { color: var(--grey-black); }
+    .rdv .arrow-link { margin-top: auto; color: var(--red); }
+
+    .p2 .newsletter { background: var(--black); color: var(--white); }
+    .p2 .newsletter button { background: var(--red); }
+
+    /* ---------- Responsive ---------- */
+    @media (max-width: 1100px) {
+      .p1__grid { grid-template-columns: 1fr; }
+      .feature__img { min-height: 0; height: 320px; }
+      .p2__grid { grid-template-columns: repeat(2, 1fr); }
+      .newsletter { flex-direction: column; align-items: stretch; }
+      .newsletter form { flex: none; }
+    }
+    @media (max-width: 700px) {
+      .feature__content { padding: 20px; }
+      .feature h3 { font-size: 32px; }
+      .event { flex-direction: column; align-items: flex-start; padding: 20px; }
+      .event__img { width: 90px; height: 90px; flex-basis: auto; }
+      .p2__grid { grid-template-columns: 1fr; }
+      .newsletter { padding: 24px; }
+      .newsletter h3 { font-size: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- =============================================================== -->
+  <div class="proposal-label">Proposition 1 — Grille « à la une » (fond sombre)</div>
+
+  <section class="p1">
+    <div class="p1__intro">
+      <h2 class="section-title" style="padding:0">Les actualités du Family Cinéma</h2>
+      <p>Nos rendez-vous réguliers, pour tous les âges.</p>
+    </div>
+
+    <div class="p1__grid">
+      <a href="#" class="feature">
+        <div class="feature__img"><img src="images/avant-premiere-surprise.jpg" alt=""></div>
+        <div class="feature__content">
+          <span class="badge">Chaque 1er mardi · 20h30</span>
+          <h3>Avant-première surprise</h3>
+          <p>Laissez-vous surprendre par un film Art &amp; Essai « Coup de cœur », suivi d’un échange avec l’équipe du cinéma.</p>
+          <p class="feature__price">Tarif unique : 5 €</p>
+          <span class="arrow-link">Voir plus d’infos</span>
+        </div>
+      </a>
+
+      <div class="p1__side">
+        <article class="event">
+          <img class="event__img" src="images/seance-jeunes-parents.png" alt="">
+          <div class="event__text">
+            <span class="badge">Un jeudi par mois · 13h45</span>
+            <h3>Séance jeunes parents</h3>
+            <p>Son adapté aux bébés de moins de 2 ans, lumière tamisée, table à langer. On peut bouger dans la salle, et les bébés faire la sieste ;)</p>
+            <a href="#" class="arrow-link">Voir plus d’infos</a>
+          </div>
+        </article>
+
+        <article class="event">
+          <img class="event__img" src="images/mon-premier-cine.png" alt="">
+          <div class="event__text">
+            <span class="badge">1er mercredi du mois · 16h</span>
+            <h3>Mon premier ciné</h3>
+            <p>Une séance courte pour les tout-petits : son réduit, lumière allumée, et un petit diplôme en souvenir.</p>
+            <a href="#" class="arrow-link">Voir plus d’infos</a>
+          </div>
+        </article>
+
+        <article class="event">
+          <img class="event__img event__img--ticket" src="images/jeudi-solidarite.png" alt="">
+          <div class="event__text">
+            <span class="badge">Tous les jeudis soirs</span>
+            <h3>Jeudi solidarité</h3>
+            <p>0,50 € par place reversé à la Croix-Rouge et à Pont &amp; Pignons.</p>
+            <a href="#" class="arrow-link">Voir plus d’infos</a>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <div class="newsletter">
+      <div>
+        <h3>News Family</h3>
+        <p>Chaque mois, toutes les animations et évènements à venir dans votre boîte mail.</p>
+      </div>
+      <form onsubmit="return false">
+        <input type="email" placeholder="Votre adresse e-mail">
+        <button>S’inscrire</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- =============================================================== -->
+  <div class="proposal-label">Proposition 2 — Agenda « Nos rendez-vous » (fond clair)</div>
+
+  <section class="p2">
+    <div class="p2__intro">
+      <h2 class="section-title" style="padding:0">Nos rendez-vous</h2>
+      <p>Des séances pensées pour chacun, tout au long du mois.</p>
+    </div>
+
+    <div class="p2__grid">
+      <article class="rdv">
+        <div class="rdv__visual rdv__visual--cover">
+          <img src="images/avant-premiere-surprise.jpg" alt="">
+          <div class="rdv__date"><span>1er mardi</span><strong>20h30</strong></div>
+        </div>
+        <div class="rdv__body">
+          <h3>Avant-première surprise</h3>
+          <p>Un film Art &amp; Essai « Coup de cœur » en avant-première, suivi d’un échange avec l’équipe.</p>
+          <div class="chips"><span class="chip">Tarif unique 5 €</span><span class="chip">Débat</span></div>
+          <a href="#" class="arrow-link">Voir plus d’infos</a>
+        </div>
+      </article>
+
+      <article class="rdv">
+        <div class="rdv__visual">
+          <img src="images/seance-jeunes-parents.png" alt="">
+          <div class="rdv__date"><span>1 jeudi / mois</span><strong>13h45</strong></div>
+        </div>
+        <div class="rdv__body">
+          <h3>Séance jeunes parents</h3>
+          <p>Pour venir au cinéma avec son bébé de moins de 2 ans, en toute tranquillité.</p>
+          <div class="chips"><span class="chip">Son adapté</span><span class="chip">Lumière tamisée</span><span class="chip">Table à langer</span></div>
+          <a href="#" class="arrow-link">Voir plus d’infos</a>
+        </div>
+      </article>
+
+      <article class="rdv">
+        <div class="rdv__visual">
+          <img src="images/mon-premier-cine.png" alt="">
+          <div class="rdv__date"><span>1er mercredi</span><strong>16h</strong></div>
+        </div>
+        <div class="rdv__body">
+          <h3>Mon premier ciné</h3>
+          <p>La toute première séance des petits, et un diplôme pour s’en souvenir.</p>
+          <div class="chips"><span class="chip">Son réduit</span><span class="chip">Lumière allumée</span><span class="chip">Séance courte</span></div>
+          <a href="#" class="arrow-link">Voir plus d’infos</a>
+        </div>
+      </article>
+
+      <article class="rdv">
+        <div class="rdv__visual">
+          <img src="images/jeudi-solidarite.png" alt="">
+          <div class="rdv__date"><span>Chaque jeudi</span><strong>Soir</strong></div>
+        </div>
+        <div class="rdv__body">
+          <h3>Jeudi solidarité</h3>
+          <p>Pour chaque place achetée, 0,50 € reversé à deux associations.</p>
+          <div class="chips"><span class="chip">Croix-Rouge</span><span class="chip">Pont &amp; Pignons</span></div>
+          <a href="#" class="arrow-link">Voir plus d’infos</a>
+        </div>
+      </article>
+    </div>
+
+    <div class="newsletter">
+      <div>
+        <h3>News Family</h3>
+        <p>Chaque mois, toutes les animations et évènements à venir dans votre boîte mail.</p>
+      </div>
+      <form onsubmit="return false">
+        <input type="email" placeholder="Votre adresse e-mail">
+        <button>S’inscrire</button>
+      </form>
+    </div>
+  </section>
+
+</body>
+</html>
