@@ -439,80 +439,147 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 /* =========================================================
    ACTUALITÉS
    ========================================================= */
-.actus {
-  display: flex;
-  flex-direction: column;
-  gap: 52px;
-  padding: 32px 0;
-  background: var(--grey-black);
+/* Éléments communs aux deux propositions */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  border-radius: 20px;
+  background: var(--red);
+  color: var(--white);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  white-space: nowrap;
 }
-.actus__top {
-  display: flex;
-  gap: 12px;
-  padding: 0 var(--gutter);
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip {
+  padding: 6px 10px;
+  border-radius: 20px;
+  border: 1px solid currentColor;
+  font-size: 12px;
+  opacity: .85;
 }
-.actus__col {
-  flex: 861 1 0;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
+.arrow-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-size: 14px;
 }
-.actus__poster {
-  flex: 473 1 0;
-  min-width: 0;
-  border-radius: var(--radius);
-  object-fit: cover;
-  background: var(--placeholder);
-}
+.arrow-link::after { content: "→"; transition: transform .2s; }
+.arrow-link:hover::after { transform: translateX(4px); }
 
-.actu-card {
-  flex: 1;
+/* Bandeau newsletter (commun) */
+.newsletter {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 16px;
-  padding: 16px;
-  border-radius: var(--radius);
-  background: var(--white);
-  color: var(--black);
+  gap: 32px;
+  margin: 0 var(--gutter);
+  padding: 32px 40px;
+  border-radius: 8px;
+  background: var(--red);
 }
-.actu-card__text {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  max-width: 611px;
+.newsletter h3 { font-size: 32px; font-weight: 700; text-transform: uppercase; }
+.newsletter p { margin-top: 6px; }
+.newsletter form { display: flex; flex: 0 1 460px; }
+.newsletter input {
+  flex: 1;
+  min-width: 0;
+  padding: 14px 16px;
+  border: 0;
+  border-radius: 4px 0 0 4px;
+  font: inherit;
 }
-.actu-card h3 {
-  font-size: 36px;
+.newsletter button {
+  padding: 14px 20px;
+  border-radius: 0 4px 4px 0;
+  background: var(--black);
   font-weight: 700;
   text-transform: uppercase;
-}
-.actu-card__when {
-  margin-top: -8px;
-  font-weight: 700;
-  text-transform: uppercase;
-}
-.actu-card__sub { margin-top: -8px; color: var(--grey-black); }
-.actu-card ul { padding-left: 24px; }
-.actu-card__text .link { margin-top: 13px; }
-.actu-card__img {
-  flex: 0 0 208px;
-  width: 208px;
-  height: 211px;
-  object-fit: contain;
 }
 
-.actus__bottom {
+.actus {
   display: flex;
-  justify-content: center;
-  gap: 10px;
-  padding: 10px var(--gutter);
+  flex-direction: column;
+  gap: 40px;
+  padding: 52px 0;
+  background: var(--grey-black);
 }
-.actus__bottom .actu-card { padding: 32px; }
-.actus__bottom .actu-card__text { max-width: 397px; }
-.actu-card--news { align-items: center; }
-.actu-card--news .actu-card__text { max-width: 288px; }
-.actu-card--news .search { flex: 0 1 312px; }
+.actus__intro { padding: 0 var(--gutter); }
+.actus__intro .section-title { padding: 0; }
+.newsletter__thanks { font-weight: 700; }
+.actus__intro p { margin-top: 8px; opacity: .7; }
+
+.actus__grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 20px;
+  padding: 0 var(--gutter);
+}
+
+/* Grande carte à la une */
+.feature {
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--black);
+  border: 1px solid rgba(255,255,255,.08);
+  text-decoration: none;
+  transition: border-color .2s;
+}
+.feature:hover { border-color: var(--red); }
+.feature__img { height: 360px; overflow: hidden; background: #d7a53e; }
+.feature__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  transition: transform .4s;
+}
+.feature:hover .feature__img img { transform: scale(1.03); }
+.feature__content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 28px 32px 32px;
+}
+.feature h3 { font-size: 40px; font-weight: 700; text-transform: uppercase; line-height: 1; }
+.feature p { opacity: .85; }
+.feature__price { font-size: 14px; font-weight: 700; }
+
+/* Petites cartes */
+.actus__side { display: flex; flex-direction: column; gap: 20px; }
+.event {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 24px;
+  border-radius: 8px;
+  background: var(--black);
+  border: 1px solid rgba(255,255,255,.08);
+  transition: border-color .2s, transform .2s;
+}
+.event:hover { border-color: var(--red); transform: translateY(-2px); }
+.event__img {
+  flex: 0 0 120px;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: var(--white);
+}
+.event__img--ticket { object-fit: contain; padding: 10px; }
+.event__text { display: flex; flex-direction: column; align-items: flex-start; gap: 10px; }
+.event h3 { font-size: 24px; font-weight: 700; text-transform: uppercase; }
+.event p { font-size: 14px; opacity: .8; }
 
 /* =========================================================
    FOOTER
@@ -611,9 +678,10 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   .hero { height: 640px; }
   .hero__text h1 { font-size: 60px; }
 
-  .actus__top { flex-direction: column; }
-  .actus__poster { width: 100%; max-width: 473px; align-self: center; }
-  .actus__bottom { flex-direction: column; }
+  .actus__grid { grid-template-columns: 1fr; }
+  .feature__img { height: 320px; }
+  .newsletter { flex-direction: column; align-items: stretch; }
+  .newsletter form { flex: none; }
 
   .footer__top { flex-wrap: wrap; justify-content: center; text-align: left; }
   .footer__logo { order: -1; width: 100%; }
@@ -652,13 +720,12 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
   .hour { padding: 12px; gap: 16px; }
   .films[data-state="close"] .films__toggle { bottom: 160px; }
 
-  .actu-card { flex-direction: column-reverse; align-items: flex-start; }
-  .actu-card h3 { font-size: 26px; }
-  .actu-card__img { flex: none; width: 140px; height: 142px; }
-  .actus__bottom .actu-card { padding: 16px; }
-  .actu-card--news { align-items: stretch; }
-  .actu-card--news .search { flex: none; order: 1; }
-  .actu-card--news { flex-direction: column; }
+  .feature__content { padding: 20px; }
+  .feature h3 { font-size: 32px; }
+  .event { flex-direction: column; align-items: flex-start; padding: 20px; }
+  .event__img { width: 90px; height: 90px; flex-basis: auto; }
+  .newsletter { padding: 24px; }
+  .newsletter h3 { font-size: 24px; }
 
   .footer__left { width: 100%; }
   .footer__logo { width: 200px; height: 100px; }

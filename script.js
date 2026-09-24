@@ -93,3 +93,11 @@ toggle.addEventListener("click", function () {
   toggle.textContent = (isClosed ? "Voir moins de film" : "Voir plus de film") + " (" + extraCount + ")";
   if (!isClosed) films.scrollIntoView({ block: "start" });
 });
+
+/* ---------- Inscription newsletter (message de confirmation) ---------- */
+document.querySelectorAll(".newsletter__form").forEach(function (form) {
+  form.addEventListener("submit", function (event) {
+    event.preventDefault();
+    form.innerHTML = "<p class=\"newsletter__thanks\">Merci ! Vous êtes bien inscrit(e) à la News Family.</p>";
+  });
+});

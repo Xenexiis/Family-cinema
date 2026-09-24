@@ -328,71 +328,65 @@
 
     <!-- ============ LES ACTUALITÉS ============ -->
     <section class="actus">
-      <h2 class="section-title">Les actualités du Family Cinéma</h2>
-
-      <div class="actus__top">
-        <div class="actus__col">
-          <article class="actu-card">
-            <div class="actu-card__text">
-              <h3>Séance jeunes parents</h3>
-              <p class="actu-card__when">Un jeudi par mois - 13h45</p>
-              <ul>
-                <li>Séance adaptée aux jeunes parents qui viennent d'avoir un bébé.</li>
-                <li>Son adapté à la présence de nourrissons de moins de 2 ans,</li>
-                <li>Table à langer,</li>
-                <li>Lumière tamisée</li>
-              </ul>
-              <p>Les parents peuvent se déplacer dans la salle si besoin et les bébés faire leur sieste ;)</p>
-              <a href="#" class="link">Voir plus d’infos</a>
-            </div>
-            <img class="actu-card__img" src="images/seance-jeunes-parents.png" alt="Logo Séance jeunes parents">
-          </article>
-
-          <article class="actu-card">
-            <div class="actu-card__text">
-              <h3>Mon premier ciné</h3>
-              <p class="actu-card__when">Premier mercredi du mois - 16h</p>
-              <p>Les premiers mercredis du mois à 16h, une séance rien que pour vous qui n'êtes jamais venu au cinéma :</p>
-              <ul>
-                <li>Son réduit,</li>
-                <li>La lumière reste allumée si vous avez peur,</li>
-                <li>Séance courte,</li>
-                <li>Et un petit diplôme pour garder un souvenir de ce jour.</li>
-              </ul>
-              <p>Les copains qui connaissent le cinéma peuvent également venir évidemment.</p>
-              <a href="#" class="link">Voir plus d’infos</a>
-            </div>
-            <img class="actu-card__img" src="images/mon-premier-cine.png" alt="Logo Mon premier ciné">
-          </article>
-        </div>
-
-        <img class="actus__poster" src="images/avant-premiere-surprise.jpg" alt="Avant-première surprise : chaque mois, les premiers mardis à 20h30">
+      <div class="actus__intro">
+        <h2 class="section-title">Les actualités du Family Cinéma</h2>
+        <p>Nos rendez-vous réguliers, pour tous les âges.</p>
       </div>
 
-      <div class="actus__bottom">
-        <article class="actu-card">
-          <div class="actu-card__text">
-            <h3>Jeudi solidarité</h3>
-            <p class="actu-card__when">Tous les jeudis soirs</p>
-            <p>Tous les jeudis soirs, pour une place achetée au tarif habituel, 0,50 euro sera reversé à deux associations solidaires.<br>
-              Cette année, le Family Cinéma a retenu : LA CROIX ROUGE et PONT &amp; PIGNONS</p>
-            <a href="#" class="link">Voir plus d’infos</a>
+      <div class="actus__grid">
+        <a href="#" class="feature">
+          <div class="feature__img"><img src="images/avant-premiere-surprise.jpg" alt="Affiche Avant-première surprise"></div>
+          <div class="feature__content">
+            <span class="badge">Chaque 1er mardi · 20h30</span>
+            <h3>Avant-première surprise</h3>
+            <p>Laissez-vous surprendre par un film Art &amp; Essai « Coup de cœur », suivi d’un échange avec l’équipe du cinéma.</p>
+            <p class="feature__price">Tarif unique : 5 €</p>
+            <span class="arrow-link">Voir plus d’infos</span>
           </div>
-          <img class="actu-card__img" src="images/jeudi-solidarite.png" alt="Ticket Jeudi solidarité">
-        </article>
+        </a>
 
-        <article class="actu-card actu-card--news">
-          <div class="actu-card__text">
-            <h3>News Family</h3>
-            <p class="actu-card__sub">Inscrivez-vous à la Newsletter</p>
-            <p>Retrouvez tous les mois la News du Family Cinéma !<br>Avec tout le détail des animations et évènements à venir.</p>
-            <a href="#" class="link">Voir plus d’infos</a>
-          </div>
-          <label class="search search--dark">
-            <img class="icon" src="images/icons/mail-noir.svg" alt="">
-            <input type="email" placeholder="Inscrivez-vous à la Newsletter">
-          </label>
-        </article>
+        <div class="actus__side">
+          <article class="event">
+            <img class="event__img" src="images/seance-jeunes-parents.png" alt="">
+            <div class="event__text">
+              <span class="badge">Un jeudi par mois · 13h45</span>
+              <h3>Séance jeunes parents</h3>
+              <p>Son adapté aux bébés de moins de 2 ans, lumière tamisée, table à langer. On peut bouger dans la salle, et les bébés faire la sieste ;)</p>
+              <a href="#" class="arrow-link">Voir plus d’infos</a>
+            </div>
+          </article>
+
+          <article class="event">
+            <img class="event__img" src="images/mon-premier-cine.png" alt="">
+            <div class="event__text">
+              <span class="badge">1er mercredi du mois · 16h</span>
+              <h3>Mon premier ciné</h3>
+              <p>Une séance courte pour les tout-petits : son réduit, lumière allumée, et un petit diplôme en souvenir.</p>
+              <a href="#" class="arrow-link">Voir plus d’infos</a>
+            </div>
+          </article>
+
+          <article class="event">
+            <img class="event__img event__img--ticket" src="images/jeudi-solidarite.png" alt="">
+            <div class="event__text">
+              <span class="badge">Tous les jeudis soirs</span>
+              <h3>Jeudi solidarité</h3>
+              <p>0,50 € par place reversé à la Croix-Rouge et à Pont &amp; Pignons.</p>
+              <a href="#" class="arrow-link">Voir plus d’infos</a>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <div class="newsletter">
+        <div>
+          <h3>News Family</h3>
+          <p>Chaque mois, toutes les animations et évènements à venir dans votre boîte mail.</p>
+        </div>
+        <form class="newsletter__form">
+          <input type="email" placeholder="Votre adresse e-mail" aria-label="Votre adresse e-mail" required>
+          <button type="submit">S’inscrire</button>
+        </form>
       </div>
     </section>
   </main>
