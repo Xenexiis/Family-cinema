@@ -13,25 +13,25 @@ const FILMS = [
   {
     id: "conclave", titre: "Conclave", genres: ["Thriller", "Drame"],
     public: "tous", enfants: false, duree: "2h00", affiche: "images/affiche-conclave.jpg",
-    resume: "Le Cardinal Lawrence est chargé de gérer ce processus confidentiel après la mort inattendue du Pape bien-aimé. Lorsque tous les dirigeants les plus puissants de l’Église Catholique sont réunis et enfermés dans le Vatican, Lawrence se retrouve au centre d’une conspiration et découvre un secret qui pourrait changer à jamais l’institution religieuse.",
+    resume: "Le cardinal Lawrence est chargé de gérer ce processus confidentiel après la mort inattendue du pape bien-aimé. Lorsque tous les dirigeants les plus puissants de l’Église catholique sont réunis et enfermés dans le Vatican, Lawrence se retrouve au centre d’une conspiration et découvre un secret qui pourrait changer à jamais l’institution religieuse.",
     seances: [["16:30", "VF"], ["20:00", "VOST"], ["21:30", "VF"]]
   },
   {
     id: "gladiator-2", titre: "Gladiator 2", genres: ["Historique", "Drame"],
     public: "-12", enfants: false, duree: "2h30", affiche: "images/affiche-gladiator-2.jpg",
-    resume: "Des années après avoir assisté à la mort du héros vénéré Maximus aux mains de son oncle, Lucius est forcé d'entrer dans le Colisée lorsque son pays est conquis par les empereurs tyranniques qui gouvernent désormais Rome d'une main de fer. La rage au cœur et l'avenir de l'Empire en jeu, Lucius doit se tourner vers son passé pour trouver la force et l'honneur de rendre la gloire de Rome à son peuple.",
+    resume: "Des années après avoir assisté à la mort du héros vénéré Maximus aux mains de son oncle, Lucius est forcé d’entrer dans le Colisée lorsque son pays est conquis par les empereurs tyranniques qui gouvernent désormais Rome d’une main de fer. La rage au cœur et l’avenir de l’Empire en jeu, Lucius doit se tourner vers son passé pour trouver la force et l’honneur de rendre la gloire de Rome à son peuple.",
     seances: [["14:00", "VF"], ["17:45", "VF"], ["20:45", "VOST"]]
   },
   {
     id: "wicked", titre: "Wicked", genres: ["Comédie musicale", "Fantastique"],
     public: "tous", enfants: true, duree: "2h40", affiche: "images/affiche-wicked.jpg",
-    resume: "Elphaba, une jeune femme incomprise à cause de la couleur inhabituelle de sa peau verte, ne soupçonne même pas l'étendue de ses pouvoirs. À ses côtés, Glinda qui, aussi populaire que privilégiée, ne connaît pas encore la vraie nature de son cœur.",
+    resume: "Elphaba, une jeune femme incomprise à cause de la couleur inhabituelle de sa peau verte, ne soupçonne même pas l’étendue de ses pouvoirs. À ses côtés, Glinda qui, aussi populaire que privilégiée, ne connaît pas encore la vraie nature de son cœur.",
     seances: [["14:15", "VF"], ["17:30", "VF"], ["20:30", "VOST"]]
   },
   {
     id: "amour-ouf", titre: "L’amour ouf", genres: ["Romance", "Drame"],
     public: "tous", enfants: false, duree: "2h42", affiche: "images/affiche-amour-ouf.jpg",
-    resume: "Les années 80, dans le nord de la France. Jackie et Clotaire grandissent entre les bancs du lycée et les docks du port. Elle étudie, il traîne. Et puis leurs destins se croisent et c'est l'amour fou. La vie s'efforcera de les séparer mais rien n'y fait, ces deux-là sont comme les deux ventricules du même cœur.",
+    resume: "Les années 80, dans le nord de la France. Jackie et Clotaire grandissent entre les bancs du lycée et les docks du port. Elle étudie, il traîne. Et puis leurs destins se croisent et c’est l’amour fou. La vie s’efforcera de les séparer mais rien n’y fait, ces deux-là sont comme les deux ventricules du même cœur.",
     seances: [["15:00", "VF"], ["20:15", "VF"]]
   },
   {
@@ -55,7 +55,7 @@ const FILMS = [
   {
     id: "en-fanfare", titre: "En fanfare", genres: ["Comédie", "Musique"],
     public: "tous", enfants: false, duree: "1h43", affiche: "images/affiche-en-fanfare.jpg",
-    resume: "Thibaut est un chef d'orchestre de renommée internationale. Lorsqu'il apprend qu'il a été adopté, il découvre l'existence d'un frère, Jimmy, employé de cantine scolaire dans le nord de la France, qui joue du trombone dans une fanfare.",
+    resume: "Thibaut est un chef d’orchestre de renommée internationale. Lorsqu’il apprend qu’il a été adopté, il découvre l’existence d’un frère, Jimmy, employé de cantine scolaire dans le nord de la France, qui joue du trombone dans une fanfare.",
     seances: [["14:30", "VF"], ["18:15", "VF"], ["20:45", "VF"]]
   }
 ];
