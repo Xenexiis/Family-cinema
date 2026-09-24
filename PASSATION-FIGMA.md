@@ -20,7 +20,7 @@ Tu reprends le travail d'une session précédente. L'utilisateur s'appelle **Mar
 | Source d'origine (ne pas casser) | `JSwsswVsC3TDbZIg5JlMpd` | https://www.figma.com/design/JSwsswVsC3TDbZIg5JlMpd | Les originaux sont intacts, et les pages « refonte » existent |
 | **AMMY** | `XkvAhKyvNmhvao8blomEwe` | https://www.figma.com/design/XkvAhKyvNmhvao8blomEwe | ✅ TERMINÉ |
 | **Org-Expo** | `FOXmqau6hlGnSw8BMhTBGs` | https://www.figma.com/design/FOXmqau6hlGnSw8BMhTBGs | ✅ TERMINÉ |
-| **Billetterie** | `jTcVjBLVNqwkqP1cOFlszx` | https://www.figma.com/design/jTcVjBLVNqwkqP1cOFlszx | ⬜ Vide, à faire |
+| **Billetterie** | `jTcVjBLVNqwkqP1cOFlszx` | https://www.figma.com/design/jTcVjBLVNqwkqP1cOFlszx | ✅ TERMINÉ (8 écrans, composants, fondations, couverture `5:820`) |
 | **Audit** | `9ZC6QcFSzQkJGBh9WMwR8M` | https://www.figma.com/design/9ZC6QcFSzQkJGBh9WMwR8M | ⬜ Vide, à faire |
 
 L'audit existe déjà en page HTML (artifact) : https://claude.ai/artifact/LaBZa8JBxnf4YghuWaLGZ8. Il faut le reproduire dans le fichier Figma Audit.
@@ -126,7 +126,7 @@ Pour les **images** :
 
 ## Reste à faire ensuite
 
-1. **Billetterie** (`jTcVjBLVNqwkqP1cOFlszx`) :
+1. ✅ FAIT — **Billetterie** (`jTcVjBLVNqwkqP1cOFlszx`) :
    - pages, variables (violet #5033FF, Inter) et envoi de l'affiche ;
    - composants :
      - Atomes : Bouton 48 px, Badge, Case, Choix.
